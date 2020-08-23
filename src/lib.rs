@@ -1,5 +1,7 @@
+mod ray;
 pub mod raytracer;
 mod utils;
+mod vec3;
 
 // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
 // allocator.

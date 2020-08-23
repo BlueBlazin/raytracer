@@ -38,11 +38,10 @@ import { memory } from "raytracer/raytracer_bg";
 
   function render() {
     requestAnimationFrame(render);
-
-    rayTracer.render();
-
     drawImage();
   }
+
+  rayTracer.render();
 
   requestAnimationFrame(render);
 })();
