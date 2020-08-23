@@ -1,9 +1,10 @@
-import { RayTracer } from "raytracer";
+import { Scene } from "raytracer";
 import { memory } from "raytracer/raytracer_bg";
 
 (function () {
-  const WIDTH = 256;
-  const HEIGHT = 256;
+  const ASPECT_RATIO = 16.0 / 9.0;
+  const WIDTH = 400;
+  const HEIGHT = Math.floor(WIDTH / ASPECT_RATIO);
   const CHANNELS = 4;
 
   const canvas = document.getElementById("canvas");
@@ -12,7 +13,7 @@ import { memory } from "raytracer/raytracer_bg";
 
   const ctx = canvas.getContext("2d");
 
-  const rayTracer = RayTracer.new(WIDTH, HEIGHT);
+  const scene = Scene.new(WIDTH);
 
   let screenPtr;
   let screen;
@@ -20,7 +21,7 @@ import { memory } from "raytracer/raytracer_bg";
 
   function drawImage() {
     if (screenPtr === undefined) {
-      screenPtr = rayTracer.screen();
+      screenPtr = scene.screen();
     }
 
     if (screen === undefined) {
@@ -29,6 +30,8 @@ import { memory } from "raytracer/raytracer_bg";
         screenPtr,
         WIDTH * HEIGHT * CHANNELS
       );
+
+      console.log(screen);
     }
 
     imgData.data.set(screen);
@@ -41,7 +44,7 @@ import { memory } from "raytracer/raytracer_bg";
     drawImage();
   }
 
-  rayTracer.render();
+  scene.render();
 
   requestAnimationFrame(render);
 })();

@@ -1,5 +1,6 @@
 mod ray;
-pub mod raytracer;
+// mod raytracer;
+pub mod scene;
 mod utils;
 mod vec3;
 

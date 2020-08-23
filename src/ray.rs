@@ -1,8 +1,8 @@
 use crate::vec3::Vec3;
 
 pub struct Ray {
-    origin: Vec3,
-    dir: Vec3,
+    pub origin: Vec3,
+    pub dir: Vec3,
 }
 
 impl Ray {
